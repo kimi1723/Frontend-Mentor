@@ -1,12 +1,18 @@
-import { Header } from '@/components/header/Header';
+import { Wrapper } from '@/ui/Wrapper';
+import { FilterButton } from '@/components/filter-section/filter-button/FilterButton';
+import { SearchBar } from '@/components/filter-section/search-bar/SearchBar';
+import { Countries } from '@/components/countries/Countries';
 
-export default async function Home() {
+export default async function FrontPage() {
 	return (
-		<>
-			<Header />
-			<main className="">
-				<h1 className="md:max-lg:text-d-gray">essa</h1>
-			</main>
-		</>
+		<main className="py-9 px-4 sm:px-8 md:px-12">
+			<Wrapper>
+				<SearchBar />
+				<FilterButton />
+			</Wrapper>
+			<Wrapper>
+				<Countries />
+			</Wrapper>
+		</main>
 	);
 }
