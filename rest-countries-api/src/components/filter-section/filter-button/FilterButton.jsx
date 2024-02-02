@@ -1,3 +1,3 @@
 export function FilterButton() {
-	return <button>filter btn</button>;
+	return <button className="">filter btn</button>;
 }
