@@ -7,7 +7,7 @@ export function FilterButton({ toggleList, ariaControls, isListShown }) {
 	return (
 		<button
 			type="button"
-			className="ps-7 pe-24 py-4 relative bg-white dark:bg-dark-blue rounded-lg shadow-md"
+			className="ps-7 pe-24 py-5 relative bg-white dark:bg-dark-blue rounded-lg shadow-lg"
 			aria-label={inputLabelAndText}
 			aria-controls={ariaControls}
 			onClick={toggleList}>

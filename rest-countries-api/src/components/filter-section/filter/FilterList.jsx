@@ -6,17 +6,17 @@ const lastIndex = regions.length - 1;
 
 export function FilterList({ ariaLabelledby }) {
 	return (
-		<ul className="bg-vd-blue absolute w-full mt-1 shadow-md rounded-lg" aria-labelledby={ariaLabelledby}>
+		<ul className="bg-vd-blue absolute top-full w-full mt-1 shadow-lg rounded-lg" aria-labelledby={ariaLabelledby}>
 			{regions.map((region, index) => {
+				const liClasses = getFirstLastTypeClasses({
+					index,
+					lastIndex,
+					first: 'rounded-t-lg',
+					last: 'rounded-b-lg',
+				});
+
 				return (
-					<li
-						key={region}
-						className={getFirstLastTypeClasses({
-							index,
-							lastIndex,
-							first: 'rounded-t-lg',
-							last: 'rounded-b-lg',
-						})}>
+					<li key={region} className={liClasses}>
 						<FilterListButton region={region} index={index} lastIndex={lastIndex} />
 					</li>
 				);
