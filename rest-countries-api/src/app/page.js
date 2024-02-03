@@ -1,5 +1,5 @@
 import { Wrapper } from '@/ui/Wrapper';
-import { FilterButton } from '@/components/filter-section/filter-button/FilterButton';
+import { Filter } from '@/components/filter-section/filter/Filter';
 import { SearchBar } from '@/components/filter-section/search-bar/SearchBar';
 import { Countries } from '@/components/countries/Countries';
 
@@ -8,7 +8,7 @@ export default async function FrontPage() {
 		<main className="py-9 px-4 sm:px-8 md:px-12">
 			<Wrapper className="flex flex-col gap-y-12 items-start md:flex-row">
 				<SearchBar />
-				<FilterButton />
+				<Filter />
 			</Wrapper>
 			<Wrapper>
 				<Countries />
