@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { FilterButton } from '@/ui/buttons/FilterButton';
 import { FilterList } from './FilterList';
@@ -11,11 +11,18 @@ export function Filter() {
 	const [isListShown, setIsListShown] = useState(false);
 
 	const toggleListHandler = () => setIsListShown(prev => !prev);
+	useEffect(() => {
+		if (isListShown === true) {
+			document.addEventListener('click', toggleListHandler);
+		}
+
+		return () => document.removeEventListener('click', toggleListHandler);
+	}, [isListShown]);
 
 	return (
 		<form action="" className="relative">
 			<FilterButton toggleList={toggleListHandler} ariaControlId={ariaControlId} isListShown={isListShown} />
-			{isListShown && <FilterList ariaControlId={ariaControlId} toggleList={toggleListHandler} />}
+			{isListShown && <FilterList ariaControlId={ariaControlId} />}
 		</form>
 	);
 }

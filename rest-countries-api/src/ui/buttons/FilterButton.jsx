@@ -5,7 +5,8 @@ export function FilterButton({ toggleList, ariaControlId, isListShown }) {
 	return (
 		<button
 			type="button"
-			className="ps-7 pe-24 py-5 relative bg-white dark:bg-dark-blue rounded-lg shadow-lg"
+			className="ps-7 pe-24 py-5 relative bg-white dark:bg-dark-blue rounded-lg shadow-lg outline-none
+			focus:shadow-d-gray dark:focus:shadow-vd-blue hover:shadow-d-gray dark:hover:shadow-vd-blue transition-shadow duration-300 ease-in-out"
 			aria-controls={ariaControlId}
 			aria-expanded={isListShown}
 			onClick={toggleList}>
