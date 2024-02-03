@@ -1,6 +1,6 @@
 import { getFirstLastTypeClasses } from '@/utils/getFirstLastTypeClasses';
 
-export function FilterListButton({ region, index, lastIndex }) {
+export function FilterListButton({ region, index, lastIndex, toggleList }) {
 	const buttonClasses = `ps-7 py-2 w-full text-left bg-white dark:bg-dark-blue hover:opacity-85  ${getFirstLastTypeClasses(
 		{
 			index,
@@ -11,7 +11,7 @@ export function FilterListButton({ region, index, lastIndex }) {
 	)}`;
 
 	return (
-		<button type="submit" className={buttonClasses}>
+		<button type="submit" className={buttonClasses} onClick={toggleList}>
 			{region}
 		</button>
 	);

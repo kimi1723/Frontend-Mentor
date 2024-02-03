@@ -15,7 +15,7 @@ export function Filter() {
 	return (
 		<form action="" className="relative">
 			<FilterButton toggleList={toggleListHandler} ariaControls={ariaControl} isListShown={isListShown} />
-			{isListShown && <FilterList ariaLabelledby={ariaControl} />}
+			{isListShown && <FilterList ariaLabelledby={ariaControl} toggleList={toggleListHandler} />}
 		</form>
 	);
 }

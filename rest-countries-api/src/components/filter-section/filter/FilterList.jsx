@@ -4,7 +4,7 @@ import { getFirstLastTypeClasses } from '@/utils/getFirstLastTypeClasses';
 const regions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
 const lastIndex = regions.length - 1;
 
-export function FilterList({ ariaLabelledby }) {
+export function FilterList({ ariaLabelledby, toggleList }) {
 	return (
 		<ul className="bg-vd-blue absolute top-full w-full mt-1 shadow-lg rounded-lg" aria-labelledby={ariaLabelledby}>
 			{regions.map((region, index) => {
@@ -17,7 +17,7 @@ export function FilterList({ ariaLabelledby }) {
 
 				return (
 					<li key={region} className={liClasses}>
-						<FilterListButton region={region} index={index} lastIndex={lastIndex} />
+						<FilterListButton region={region} index={index} lastIndex={lastIndex} toggleList={toggleList} />
 					</li>
 				);
 			})}
