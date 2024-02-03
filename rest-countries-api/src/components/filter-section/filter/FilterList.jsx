@@ -4,9 +4,9 @@ import { getFirstLastTypeClasses } from '@/utils/getFirstLastTypeClasses';
 const regions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
 const lastIndex = regions.length - 1;
 
-export function FilterList({ ariaLabelledby, toggleList }) {
+export function FilterList({ ariaControlId, toggleList }) {
 	return (
-		<ul className="bg-vd-blue absolute top-full w-full mt-1 shadow-lg rounded-lg" aria-labelledby={ariaLabelledby}>
+		<ul className="bg-vd-blue absolute top-full w-full mt-1 shadow-lg rounded-lg" id={ariaControlId}>
 			{regions.map((region, index) => {
 				const liClasses = getFirstLastTypeClasses({
 					index,
