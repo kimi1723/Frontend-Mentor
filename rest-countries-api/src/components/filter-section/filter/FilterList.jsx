@@ -10,8 +10,12 @@ export function FilterList({ ariaControlId }) {
 	const router = useRouter();
 	const searchParams = useSearchParams();
 
-	const filterRegionsHandler = () => {
-		console.log(searchParams.entries());
+	const filterRegionsHandler = region => {
+		const newSearchParams = new URLSearchParams(searchParams);
+		newSearchParams.set('filter', region);
+
+		const queryString = newSearchParams.toString();
+		router.push(`?${queryString}`);
 	};
 
 	return (
@@ -26,7 +30,12 @@ export function FilterList({ ariaControlId }) {
 
 				return (
 					<li key={region} className={liClasses}>
-						<FilterListButton region={region} index={index} lastIndex={lastIndex} onClick={filterRegionsHandler} />
+						<FilterListButton
+							region={region}
+							index={index}
+							lastIndex={lastIndex}
+							onClick={() => filterRegionsHandler(region)}
+						/>
 					</li>
 				);
 			})}
