@@ -1,38 +1,22 @@
 import { Wrapper } from '@/ui/Wrapper';
 import Image from 'next/image';
 
-const defaultQuery = 'all?fields=flags,name,population,region,capital';
-
-const getQuery = searchParams => {
-	const [firstEntry] = Object.entries(searchParams);
-
-	if (!firstEntry) {
-		return defaultQuery;
-	}
-
-	const [key, value] = firstEntry;
-
-	return `region/${value}`;
-};
-
 export async function Countries({ searchParams }) {
-	const [firstEntry] = Object.entries(searchParams);
+	const { filter, search } = searchParams;
 
-	const API__URL = firstEntry ? `region/${firstEntry[1]}` : defaultQuery;
-	const API_URL = getQuery(searchParams);
-	// define which way is better, get data validating with zod, first maybe check if its even a viable
-	// solution and if not should just opt into client component, as the problems may arise
-	// while trying to search by both region and searchbar
+	const API_FILTER_URL = filter ? `region/${filter}` : 'all';
 
-	const res = await fetch(`https://restcountries.com/v3.1/${API_URL}`);
+	const res = await fetch(
+		`https://restcountries.com/v3.1/${API_FILTER_URL}?fields=flags,name,population,region,capital`,
+	);
 	const data = await res.json();
 
 	return (
 		<Wrapper>
-			<ul>
+			<ul className="w-1/2">
 				{data.map(({ flags: { png: src, alt }, name: { official: name }, population, region, capital }) => (
 					<li key={name} className="relative">
-						<Image src={src} alt={alt} fill />
+						{/* <Image src={src} alt={alt} fill /> */}
 						<div>
 							<h2>{name}</h2>
 

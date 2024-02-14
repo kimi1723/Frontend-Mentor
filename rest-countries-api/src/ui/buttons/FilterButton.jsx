@@ -1,7 +1,7 @@
 import { FaChevronUp } from 'react-icons/fa6';
 import { FaChevronDown } from 'react-icons/fa6';
 
-export function FilterButton({ toggleList, ariaControlId, isListShown }) {
+export function FilterButton({ onClick, ariaControlId, isListShown }) {
 	return (
 		<button
 			type="button"
@@ -9,7 +9,7 @@ export function FilterButton({ toggleList, ariaControlId, isListShown }) {
 			focus:shadow-d-gray dark:focus:shadow-vd-blue hover:shadow-d-gray dark:hover:shadow-vd-blue transition-shadow duration-300 ease-in-out"
 			aria-controls={ariaControlId}
 			aria-expanded={isListShown}
-			onClick={toggleList}>
+			onClick={onClick}>
 			Filter by Region
 			<span className="absolute top-0 right-6 flex items-center h-full">
 				{isListShown ? <FaChevronDown /> : <FaChevronUp />}

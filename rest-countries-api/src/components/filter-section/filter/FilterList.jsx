@@ -1,3 +1,5 @@
+import { useRouter, useSearchParams } from 'next/navigation';
+
 import { FilterListButton } from '@/ui/buttons/FilterListButton';
 import { getFirstLastTypeClasses } from '@/utils/getFirstLastTypeClasses';
 
@@ -5,6 +7,13 @@ const regions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
 const lastIndex = regions.length - 1;
 
 export function FilterList({ ariaControlId }) {
+	const router = useRouter();
+	const searchParams = useSearchParams();
+
+	const filterRegionsHandler = () => {
+		console.log(searchParams.entries());
+	};
+
 	return (
 		<ul className="bg-vd-blue absolute top-full w-full mt-1 shadow-lg rounded-lg" id={ariaControlId}>
 			{regions.map((region, index) => {
@@ -17,7 +26,7 @@ export function FilterList({ ariaControlId }) {
 
 				return (
 					<li key={region} className={liClasses}>
-						<FilterListButton region={region} index={index} lastIndex={lastIndex} />
+						<FilterListButton region={region} index={index} lastIndex={lastIndex} onClick={filterRegionsHandler} />
 					</li>
 				);
 			})}

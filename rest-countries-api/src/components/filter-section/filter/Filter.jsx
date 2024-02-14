@@ -11,6 +11,7 @@ export function Filter() {
 	const [isListShown, setIsListShown] = useState(false);
 
 	const toggleListHandler = () => setIsListShown(prev => !prev);
+
 	useEffect(() => {
 		if (isListShown === true) {
 			document.addEventListener('click', toggleListHandler);
@@ -21,7 +22,7 @@ export function Filter() {
 
 	return (
 		<form action="" className="relative">
-			<FilterButton toggleList={toggleListHandler} ariaControlId={ariaControlId} isListShown={isListShown} />
+			<FilterButton onClick={toggleListHandler} ariaControlId={ariaControlId} isListShown={isListShown} />
 			{isListShown && <FilterList ariaControlId={ariaControlId} />}
 		</form>
 	);
