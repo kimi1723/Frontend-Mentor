@@ -1,13 +1,15 @@
 import { FilterListButton } from '@/ui/buttons/FilterListButton';
 import { getFirstLastTypeClasses } from '@/utils/getFirstLastTypeClasses';
 
-const regions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
-const lastIndex = regions.length - 1;
+const options = ['All', 'Africa', 'America', 'Asia', 'Europe', 'Oceania'];
+const lastIndex = options.length - 2;
 
-export function FilterList({ ariaControlId, onClick }) {
+export function FilterList({ ariaControlId, onClick, activeRegion = 'all' }) {
+	const filteredOptions = options.filter(option => option.toLowerCase() !== activeRegion);
+
 	return (
 		<ul className="bg-vd-blue absolute top-full w-full mt-1 shadow-lg rounded-lg" id={ariaControlId}>
-			{regions.map((region, index) => {
+			{filteredOptions.map((region, index) => {
 				const liClasses = getFirstLastTypeClasses({
 					index,
 					lastIndex,

@@ -1,9 +1,9 @@
-import { useGetSearchParam } from '@/hooks/useGetSearchParam';
+import { useGetSearchParamValue } from '@/hooks/useGetSearchParamValue';
 
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 
 export function SearchInput({ inputLabelAndPlaceholder = 'Search', onChange }) {
-	const searchQuery = useGetSearchParam('search');
+	const searchQuery = useGetSearchParamValue('search');
 
 	return (
 		<>

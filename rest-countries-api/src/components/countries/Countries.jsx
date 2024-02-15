@@ -3,9 +3,9 @@ import Image from 'next/image';
 import { Wrapper } from '@/ui/Wrapper';
 
 export async function Countries({ searchParams }) {
-	const { filter } = searchParams;
+	const filter = searchParams.filter?.toLowerCase();
 
-	const API_FILTER_URL = filter ? `region/${filter}` : 'all';
+	const API_FILTER_URL = filter && filter !== 'all' ? `region/${filter}` : 'all';
 
 	const res = await fetch(
 		`https://restcountries.com/v3.1/${API_FILTER_URL}?fields=flags,name,population,region,capital`,
