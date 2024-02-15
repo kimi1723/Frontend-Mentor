@@ -1,10 +1,10 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export const useUpdateSearchParams = (key, value) => {
+export const useUpdateSearchParams = () => {
 	const router = useRouter();
 	const searchParams = useSearchParams();
 
-	return () => {
+	return (key, value) => {
 		const newSearchParams = new URLSearchParams(searchParams);
 		newSearchParams.set(key, value);
 
