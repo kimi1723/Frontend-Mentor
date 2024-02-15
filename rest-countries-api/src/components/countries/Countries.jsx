@@ -1,8 +1,9 @@
-import { Wrapper } from '@/ui/Wrapper';
 import Image from 'next/image';
 
+import { Wrapper } from '@/ui/Wrapper';
+
 export async function Countries({ searchParams }) {
-	const { filter, search } = searchParams;
+	const { filter } = searchParams;
 
 	const API_FILTER_URL = filter ? `region/${filter}` : 'all';
 

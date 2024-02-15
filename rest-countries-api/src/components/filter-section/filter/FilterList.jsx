@@ -8,9 +8,7 @@ const lastIndex = regions.length - 1;
 export function FilterList({ ariaControlId }) {
 	const updateSearchParams = useUpdateSearchParams();
 
-	const filterRegionsHandler = region => {
-		updateSearchParams('filter', region);
-	};
+	const filterRegionsHandler = region => updateSearchParams('filter', region);
 
 	return (
 		<ul className="bg-vd-blue absolute top-full w-full mt-1 shadow-lg rounded-lg" id={ariaControlId}>
