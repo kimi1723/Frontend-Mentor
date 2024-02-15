@@ -1,21 +1,15 @@
-import { useRouter, useSearchParams } from 'next/navigation';
-
 import { FilterListButton } from '@/ui/buttons/FilterListButton';
 import { getFirstLastTypeClasses } from '@/utils/getFirstLastTypeClasses';
+import { useUpdateSearchParams } from '@/hooks/useUpdateSearchParams';
 
 const regions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
 const lastIndex = regions.length - 1;
 
 export function FilterList({ ariaControlId }) {
-	const router = useRouter();
-	const searchParams = useSearchParams();
+	const updateSearchParams = useUpdateSearchParams();
 
 	const filterRegionsHandler = region => {
-		const newSearchParams = new URLSearchParams(searchParams);
-		newSearchParams.set('filter', region);
-
-		const queryString = newSearchParams.toString();
-		router.push(`?${queryString}`);
+		updateSearchParams('filter', region);
 	};
 
 	return (
