@@ -1,15 +1,10 @@
 import { FilterListButton } from '@/ui/buttons/FilterListButton';
 import { getFirstLastTypeClasses } from '@/utils/getFirstLastTypeClasses';
-import { useUpdateSearchParams } from '@/hooks/useUpdateSearchParams';
 
 const regions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
 const lastIndex = regions.length - 1;
 
-export function FilterList({ ariaControlId }) {
-	const updateSearchParams = useUpdateSearchParams();
-
-	const filterRegionsHandler = region => updateSearchParams('filter', region);
-
+export function FilterList({ ariaControlId, onClick }) {
 	return (
 		<ul className="bg-vd-blue absolute top-full w-full mt-1 shadow-lg rounded-lg" id={ariaControlId}>
 			{regions.map((region, index) => {
@@ -22,12 +17,7 @@ export function FilterList({ ariaControlId }) {
 
 				return (
 					<li key={region} className={liClasses}>
-						<FilterListButton
-							region={region}
-							index={index}
-							lastIndex={lastIndex}
-							onClick={() => filterRegionsHandler(region)}
-						/>
+						<FilterListButton region={region} index={index} lastIndex={lastIndex} onClick={() => onClick(region)} />
 					</li>
 				);
 			})}

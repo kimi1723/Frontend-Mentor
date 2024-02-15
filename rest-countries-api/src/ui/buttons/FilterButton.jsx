@@ -1,7 +1,11 @@
+import { useGetSearchParam } from '@/hooks/useGetSearchParam';
+
 import { FaChevronUp } from 'react-icons/fa6';
 import { FaChevronDown } from 'react-icons/fa6';
 
 export function FilterButton({ onClick, ariaControlId, isListShown }) {
+	const activeRegion = useGetSearchParam('filter');
+
 	return (
 		<button
 			type="button"
@@ -10,7 +14,8 @@ export function FilterButton({ onClick, ariaControlId, isListShown }) {
 			aria-controls={ariaControlId}
 			aria-expanded={isListShown}
 			onClick={onClick}>
-			Filter by Region
+			{activeRegion !== 'all' || activeRegion !== undefined ? activeRegion : 'Filter by Region'}
+			{/* to do all */}
 			<span className="absolute top-0 right-6 flex items-center h-full">
 				{isListShown ? <FaChevronDown /> : <FaChevronUp />}
 			</span>
