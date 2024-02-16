@@ -19,10 +19,10 @@ export async function Countries({ searchParams }) {
 				{data
 					.filter(country => country.name.common.toLowerCase().includes(searchQuery))
 					.map(({ flags: { png: src, alt }, name: { common: name }, population, region, capital }) => (
-						<li key={name} className="w-80 shadow-lg rounded-md">
-							<Image src={src} alt={alt} height={192} width={320} className="rounded-t-md shadow-sm h-40" />
+						<li key={name} className="w-72 bg-white dark:bg-dark-blue shadow-lg rounded-md">
+							<Image src={src} alt={alt} height={192} width={288} className="rounded-t-md shadow-sm h-40" />
 
-							<div className="mt-0.5 px-7 pt-6 pb-12 bg-white rounded-b-md">
+							<div className="mt-0.5 px-7 pt-6 pb-12 rounded-b-md">
 								<h2 className="font-bold text-xl mb-3">{name}</h2>
 
 								<dl className="flex flex-col gap-y-1">
