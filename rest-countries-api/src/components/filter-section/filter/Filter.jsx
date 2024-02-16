@@ -28,7 +28,7 @@ export function Filter() {
 	}, [isListShown]);
 
 	return (
-		<form action="" className="relative">
+		<div className="relative">
 			<FilterButton
 				onClick={toggleListHandler}
 				ariaControlId={ariaControlId}
@@ -38,6 +38,6 @@ export function Filter() {
 			{isListShown && (
 				<FilterList ariaControlId={ariaControlId} onClick={filterRegionsHandler} activeRegion={activeRegion} />
 			)}
-		</form>
+		</div>
 	);
 }

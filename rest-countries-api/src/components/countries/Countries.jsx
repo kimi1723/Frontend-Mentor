@@ -15,23 +15,32 @@ export async function Countries({ searchParams }) {
 
 	return (
 		<Wrapper>
-			<ul className="w-1/2">
+			<ul className="flex items-center justify-center flex-wrap gap-14 lg:gap-20 my-7 py-5 w-full">
 				{data
-					.filter(country => country.name.official.toLowerCase().includes(searchQuery))
-					.map(({ flags: { png: src, alt }, name: { official: name }, population, region, capital }) => (
-						<li key={name} className="relative">
-							{/* <Image src={src} alt={alt} fill /> */}
-							<div>
-								<h2>{name}</h2>
+					.filter(country => country.name.common.toLowerCase().includes(searchQuery))
+					.map(({ flags: { png: src, alt }, name: { common: name }, population, region, capital }) => (
+						<li key={name} className="w-80 shadow-lg rounded-md">
+							<Image src={src} alt={alt} height={192} width={320} className="rounded-t-md shadow-sm h-40" />
 
-								<dt>Population:</dt>
-								<dd>{population}</dd>
+							<div className="mt-0.5 px-7 pt-6 pb-12 bg-white rounded-b-md">
+								<h2 className="font-bold text-xl mb-3">{name}</h2>
 
-								<dt>Region:</dt>
-								<dd>{region}</dd>
+								<dl className="flex flex-col gap-y-1">
+									<div>
+										<dt className="font-semibold inline">Population: </dt>
+										<dd className="inline">{population.toLocaleString()}</dd>
+									</div>
 
-								<dt>Capital:</dt>
-								<dd>{capital}</dd>
+									<div>
+										<dt className="font-semibold inline">Region: </dt>
+										<dd className="inline">{region}</dd>
+									</div>
+
+									<div>
+										<dt className="font-semibold inline">Capital: </dt>
+										<dd className="inline">{capital}</dd>
+									</div>
+								</dl>
 							</div>
 						</li>
 					))}
