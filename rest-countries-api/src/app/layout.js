@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
 
 	return (
 		<html lang="en" className={`${nunito_sans.className} ${theme}`}>
-			<body className="bg-vl-gray dark:bg-dark-vd-blue h-screen text-vd-blue dark:text-white">
+			<body className="bg-vl-gray dark:bg-dark-vd-blue h-screen text-vd-blue dark:text-white ease-in-out duration-300">
 				<Header theme={theme} />
 				{children}
 			</body>
