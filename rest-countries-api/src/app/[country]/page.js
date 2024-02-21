@@ -8,12 +8,15 @@ export default async function Country({ params: { country } }) {
 	const [data] = await res.json();
 
 	const transformedData = transformCountryData(data);
-
-	const { nativeName, population, region, subregion, capital, tld, currencies, languages, borders } = transformedData;
+	const { name, nativeName, population, region, subregion, capital, tld, currencies, languages, borders } =
+		transformedData;
 
 	const descriptionListElements = [
 		['Native Name', nativeName],
 		['Population', population],
+		['Region', region],
+		['Sub Region', subregion],
+		['Capital', capital],
 	];
 
 	return (
@@ -21,7 +24,7 @@ export default async function Country({ params: { country } }) {
 			<Wrapper>
 				<BackButton />
 				{/* <Image/> */}
-				<h2 className="font-bold text-2xl">{country}</h2>
+				<h2 className="font-bold text-2xl">{name}</h2>
 				<DescriptionList elements={descriptionListElements} additionalClasses={[]} />
 			</Wrapper>
 		</main>

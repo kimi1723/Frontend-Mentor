@@ -31,7 +31,7 @@ const transformCurrencies = currencies => {
 };
 
 export const transformCountryData = ({
-	name: { nativeName },
+	name: { nativeName, common: name },
 	population,
 	region,
 	subregion,
@@ -50,6 +50,7 @@ export const transformCountryData = ({
 	const transformedCurrencies = transformCurrencies(currencies);
 
 	return {
+		name,
 		nativeName: transformedNativeName,
 		population: transformedPopulation,
 		region,
