@@ -32,18 +32,18 @@ export function SingleCountry({
 
 					<dl className="flex flex-col gap-y-1">
 						<div>
-							<dt className="font-semibold inline cursor-text  select-text">Population: </dt>
-							<dd className="inline cursor-text  select-text">{population.toLocaleString('en-US')}</dd>
+							<dt className="font-semibold inline cursor-text select-text">Population: </dt>
+							<dd className="inline cursor-text select-text">{population.toLocaleString('en-US')}</dd>
 						</div>
 
 						<div>
-							<dt className="font-semibold inline cursor-text  select-text">Region: </dt>
-							<dd className="inline cursor-text  select-text">{region}</dd>
+							<dt className="font-semibold inline cursor-text select-text">Region: </dt>
+							<dd className="inline cursor-text select-text">{region}</dd>
 						</div>
 
 						<div>
-							<dt className="font-semibold inline cursor-text  select-text">Capital: </dt>
-							<dd className="inline cursor-text  select-text">{capital}</dd>
+							<dt className="font-semibold inline cursor-text select-text">Capital: </dt>
+							<dd className="inline cursor-text select-text">{capital}</dd>
 						</div>
 					</dl>
 				</div>

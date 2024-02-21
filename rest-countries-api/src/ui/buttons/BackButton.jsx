@@ -14,7 +14,7 @@ export function BackButton() {
 	};
 
 	return (
-		<button onClick={goBack}>
+		<button type="button" onClick={goBack} className="flex items-center gap-x-3 py-2 px-7 bg-white shadow-lg">
 			<FaArrowLeftLong />
 			Back
 		</button>
