@@ -1,35 +1,29 @@
 import { Wrapper } from '@/ui/Wrapper';
 import { BackButton } from '@/ui/buttons/BackButton';
 import { DescriptionList } from '@/ui/lists/DescriptionList';
+import { transformCountryData } from '@/utils/transformCountryData';
 
 export default async function Country({ params: { country } }) {
 	const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
 	const [data] = await res.json();
 
-	console.log(data);
-	const {
-		name: { nativeName },
-		population,
-		region,
-		subregion,
-		capital,
-		tld,
-		currencies,
-		languages,
-		borders,
-	} = data;
+	const transformedData = transformCountryData(data);
 
-	const [topLevelDomain] = tld;
+	const { nativeName, population, region, subregion, capital, tld, currencies, languages, borders } = transformedData;
 
-	// console.log(nativeName); get lang by official lang
-	console.log(nativeName);
+	const descriptionListElements = [
+		['Native Name', nativeName],
+		['Population', population],
+	];
 
 	return (
 		<main className="py-9 px-8">
-			<BackButton />
-			{/* <Image/> */}
-			<h2 className="font-bold text-2xl">{country}</h2>
-			<DescriptionList elements={[['Native Name', 'Belgie']]} additionalClasses={[]} />
+			<Wrapper>
+				<BackButton />
+				{/* <Image/> */}
+				<h2 className="font-bold text-2xl">{country}</h2>
+				<DescriptionList elements={descriptionListElements} additionalClasses={[]} />
+			</Wrapper>
 		</main>
 	);
 }

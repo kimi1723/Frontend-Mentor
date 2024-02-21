@@ -4,7 +4,7 @@ import { Filter } from '@/components/filter-section/filter/Filter';
 
 export function FilterSection() {
 	return (
-		<Wrapper className="flex flex-col gap-y-12 items-start md:flex-row md:justify-between md:items-center">
+		<Wrapper className="flex flex-col gap-y-12 items-start md:flex-row md:justify-between md:items-center" isSection>
 			<SearchBar />
 			<Filter />
 		</Wrapper>
