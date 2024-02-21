@@ -29,14 +29,7 @@ export default async function Country({ params: { country } }) {
 			<BackButton />
 			{/* <Image/> */}
 			<h2 className="font-bold text-2xl">{country}</h2>
-			<DescriptionList
-				content={[
-					{
-						title: 'Native Name',
-						desc: 'Belgie',
-					},
-				]}
-			/>
+			<DescriptionList elements={[['Native Name', 'Belgie']]} additionalClasses={[]} />
 		</main>
 	);
 }

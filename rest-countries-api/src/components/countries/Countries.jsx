@@ -1,6 +1,7 @@
 import { Wrapper } from '@/ui/Wrapper';
 
 import { SingleCountry } from './SingleCountry';
+import { REST_API_URL } from '@/constants/urls';
 
 export async function Countries({ searchParams }) {
 	const filter = searchParams.filter?.toLowerCase();
@@ -8,9 +9,7 @@ export async function Countries({ searchParams }) {
 
 	const API_FILTER_URL = filter && filter !== 'all' ? `region/${filter}` : 'all';
 
-	const res = await fetch(
-		`https://restcountries.com/v3.1/${API_FILTER_URL}?fields=flags,name,population,region,capital`,
-	);
+	const res = await fetch(`${REST_API_URL}${API_FILTER_URL}?fields=flags,name,population,region,capital`);
 	const data = await res.json();
 
 	return (
