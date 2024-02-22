@@ -31,7 +31,19 @@ const transformCurrencies = currencies => {
 	return currenciesValues.map(currency => currency.name);
 };
 
-export const transformCountryData = ({
+const transformBorders = async bordersCodes => {
+	const bordersQuery = bordersCodes.join(',');
+
+	const res = await fetch(`https://restcountries.com/v3.1/alpha?codes=${bordersQuery}&fields=name`);
+	const data = await res.json();
+
+	const borders = data.map(country => country.name.common).sort();
+
+	return borders;
+};
+
+export const transformCountryData = async ({
+	flags: { png, alt },
 	name: { nativeName, common: name },
 	population,
 	region,
@@ -49,7 +61,10 @@ export const transformCountryData = ({
 	const transformedTld = transformTld(tld);
 	const transformedCurrencies = transformCurrencies(currencies);
 
+	const transformedBorders = await transformBorders(borders);
+
 	return {
+		flag: { src: png, alt },
 		name,
 		nativeName: transformedNativeName,
 		population: transformedPopulation,
@@ -59,5 +74,6 @@ export const transformCountryData = ({
 		tld: transformedTld,
 		languages: transformedLanguages,
 		currencies: transformedCurrencies,
+		borders: transformedBorders,
 	};
 };
