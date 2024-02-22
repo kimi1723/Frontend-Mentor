@@ -1,11 +1,12 @@
 export function DescriptionList({ elements, additionalClasses }) {
-	const [additionalTitleClasses, additionalDescClasses] = additionalClasses;
+	const { dl, wrapper, title, desc } = additionalClasses;
 
-	const titleClasses = `font-semibold inline ${additionalTitleClasses}`;
-	const descClasses = `inline ${additionalDescClasses}`;
+	const titleClasses = `font-semibold inline ${title}`;
+	const descClasses = `inline ${desc}`;
+	const dlClasses = `flex flex-col ${dl}`;
 
 	return (
-		<dl className="flex flex-col gap-y-1 h-32">
+		<dl className={dlClasses}>
 			{elements.map(el => {
 				const [title, desc] = el;
 

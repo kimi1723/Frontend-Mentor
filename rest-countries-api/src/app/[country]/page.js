@@ -23,12 +23,17 @@ export default async function Country({ params: { country } }) {
 	];
 
 	return (
-		<main className="py-9 px-8">
+		<main className="py-9 px-8 sm:px-12 md:px-16">
 			<Wrapper>
 				<BackButton />
 				{/* <Image/> */}
 				<h2 className="font-bold text-2xl">{name}</h2>
-				<DescriptionList elements={descriptionListElements} additionalClasses={[]} />
+				<DescriptionList
+					elements={descriptionListElements}
+					additionalClasses={{
+						dl: '[&>*:nth-child(5)]:mb-10 md:[&>*:nth-child(5)]:mb-0 md:h-40 md:flex-wrap gap-y-2 content-between',
+					}}
+				/>
 			</Wrapper>
 		</main>
 	);

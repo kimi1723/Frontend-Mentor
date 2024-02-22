@@ -6,7 +6,11 @@ import Image from 'next/image';
 import { DescriptionList } from '@/ui/lists/DescriptionList';
 import { selectableTextClasses } from '@/constants/selectableText';
 
-const descriptionListAdditionalClasses = [[selectableTextClasses], [selectableTextClasses]];
+const descriptionListAdditionalClasses = {
+	dl: 'gap-y-1',
+	title: selectableTextClasses,
+	desc: selectableTextClasses,
+};
 
 export function SingleCountry({
 	country: {
