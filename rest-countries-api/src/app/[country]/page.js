@@ -27,7 +27,7 @@ export default async function Country({ params: { country } }) {
 			<Wrapper>
 				<BackButton />
 				{/* <Image/> */}
-				<h2 className="font-bold text-2xl">{name}</h2>
+				<h2 className="font-bold text-2xl duration-300 ease-in-out">{name}</h2>
 				<DescriptionList
 					elements={descriptionListElements}
 					additionalClasses={{

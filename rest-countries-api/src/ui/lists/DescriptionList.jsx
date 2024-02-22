@@ -3,7 +3,7 @@ export function DescriptionList({ elements, additionalClasses }) {
 
 	const titleClasses = `font-semibold inline ${title}`;
 	const descClasses = `inline ${desc}`;
-	const dlClasses = `flex flex-col ${dl}`;
+	const dlClasses = `flex flex-col duration-300 ease-in-out ${dl}`;
 
 	return (
 		<dl className={dlClasses}>
