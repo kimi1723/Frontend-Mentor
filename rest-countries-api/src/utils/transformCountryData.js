@@ -1,14 +1,15 @@
-const transformNativeName = (nativeName, firstAphabeticalLanguageKey) => nativeName[firstAphabeticalLanguageKey].common;
-
 const transformLanguages = languages => {
 	const languagesKeys = Object.keys(languages);
 	const languagesValues = Object.values(languages);
 
 	const sortedLanguages = languagesValues.sort();
 	const firstAphabeticalLanguageKey = languagesKeys.find(key => languages[key] === sortedLanguages[0]);
+	const transformedLanguages = sortedLanguages.join(', ');
 
-	return { transformedLanguages: sortedLanguages, firstAphabeticalLanguageKey };
+	return { transformedLanguages, firstAphabeticalLanguageKey };
 };
+
+const transformNativeName = (nativeName, firstAphabeticalLanguageKey) => nativeName[firstAphabeticalLanguageKey].common;
 
 const transformPopulation = population => population.toLocaleString('en-US');
 
@@ -42,7 +43,6 @@ export const transformCountryData = ({
 	borders,
 }) => {
 	const { transformedLanguages, firstAphabeticalLanguageKey } = transformLanguages(languages);
-
 	const transformedNativeName = transformNativeName(nativeName, firstAphabeticalLanguageKey);
 	const transformedPopulation = transformPopulation(population);
 	const transformedCapital = transformCapital(capital);

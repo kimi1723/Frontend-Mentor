@@ -17,6 +17,9 @@ export default async function Country({ params: { country } }) {
 		['Region', region],
 		['Sub Region', subregion],
 		['Capital', capital],
+		['Top Level Domain', tld],
+		['Currencies', currencies],
+		['Languages', languages],
 	];
 
 	return (
