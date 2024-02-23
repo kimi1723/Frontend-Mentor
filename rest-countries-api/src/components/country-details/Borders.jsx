@@ -12,7 +12,7 @@ export function Borders({ borders }) {
 						</li>
 					))
 				) : (
-					<p>Country has no borders</p>
+					<p className="duration-300 ease-in-out">Country has no border countries</p>
 				)}
 			</ul>
 		</>

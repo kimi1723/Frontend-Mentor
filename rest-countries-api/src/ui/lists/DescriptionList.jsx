@@ -1,9 +1,9 @@
 export function DescriptionList({ elements, additionalClasses }) {
-	const { dl, wrapper, title, desc } = additionalClasses;
+	const { dl = '', wrapper = '', title = '', desc = '' } = additionalClasses;
 
 	const dlClasses = `flex flex-col duration-300 ease-in-out ${dl}`;
 	const wrapperClasses = `w-max ${wrapper}`;
-	const titleClasses = `font-semibold inline ${title}`;
+	const titleClasses = `font-semibold inline  ${title}`;
 	const descClasses = `inline ${desc}`;
 
 	return (
