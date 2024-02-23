@@ -32,9 +32,7 @@ const transformCurrencies = currencies => {
 };
 
 const transformBorders = async (bordersCodes = []) => {
-	if (bordersCodes.length < 1) {
-		return null;
-	}
+	if (bordersCodes.length < 1) return null;
 
 	const bordersQuery = bordersCodes.join(',');
 	const res = await fetch(`https://restcountries.com/v3.1/alpha?codes=${bordersQuery}&fields=name`);
@@ -62,7 +60,6 @@ export const transformCountryData = async ({
 	const transformedCapital = transformCapital(capital);
 	const transformedTld = transformTld(tld);
 	const transformedCurrencies = transformCurrencies(currencies);
-
 	const transformedBorders = await transformBorders(borders);
 
 	return {

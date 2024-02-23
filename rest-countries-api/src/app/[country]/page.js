@@ -6,7 +6,7 @@ export default async function Country({ params: { country } }) {
 	const [data] = await res.json();
 
 	const transformedData = await transformCountryData(data);
-
+	// TODO: loading on fetch
 	return (
 		<main className="py-9 px-8 sm:px-12 md:px-16">
 			<CountryDetails data={transformedData} />

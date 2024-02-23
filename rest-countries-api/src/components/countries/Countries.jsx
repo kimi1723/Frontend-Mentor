@@ -14,7 +14,7 @@ export async function Countries({ searchParams }) {
 
 	return (
 		<Wrapper isSection>
-			<ul className="flex items-center justify-center flex-wrap gap-14 lg:gap-20 my-7 py-5 w-full">
+			<ul className="flex items-center justify-center 2xl:justify-between flex-wrap gap-14 lg:gap-20 my-7 py-5 w-full">
 				{data
 					.filter(country => country.name.common.toLowerCase().includes(searchQuery))
 					.map(country => (

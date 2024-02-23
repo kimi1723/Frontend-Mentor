@@ -5,12 +5,15 @@ import Image from 'next/image';
 
 import { DescriptionList } from '@/ui/lists/DescriptionList';
 import { selectableTextClasses } from '@/constants/selectableText';
+import { preventTagDefault } from '@/utils/preventTagDefault';
 
 const descriptionListAdditionalClasses = {
 	dl: 'gap-y-1',
 	title: selectableTextClasses,
 	desc: selectableTextClasses,
 };
+
+const textTags = ['h2', 'dt', 'dd'];
 
 export function SingleCountry({
 	country: {
@@ -21,20 +24,13 @@ export function SingleCountry({
 		capital,
 	},
 }) {
-	const textClickHandler = e => {
-		const textTags = ['h2', 'dt', 'dd'];
-		const tagName = e.target.tagName.toLowerCase();
-
-		if (textTags.includes(tagName)) {
-			e.preventDefault();
-		}
-	};
-
 	const descriptionListElements = [
 		['Population', population.toLocaleString('en-US')],
 		['Region', region],
 		['Capital', capital],
 	];
+
+	const textClickHandler = e => preventTagDefault(e, textTags);
 
 	return (
 		<li
