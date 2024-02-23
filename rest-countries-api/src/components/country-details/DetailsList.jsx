@@ -1,27 +1,39 @@
 import { DescriptionList } from '@/ui/lists/DescriptionList';
 
+const listClasses = 'md:w-1/2 gap-y-2';
+
 export function DetailsList({
 	data: { nativeName, population, region, subregion, capital, tld, currencies, languages },
 }) {
-	const descriptionListElements = [
+	const firstList = [
 		['Native Name', nativeName],
 		['Population', population],
 		['Region', region],
 		['Sub Region', subregion],
 		['Capital', capital],
+	];
+
+	const secondList = [
 		['Top Level Domain', tld],
 		['Currencies', currencies],
 		['Languages', languages],
 	];
 
 	return (
-		<>
+		<div className="flex flex-col gap-y-12 md:flex-row md:gap-x-12 xl:gap-x-20">
 			<DescriptionList
-				elements={descriptionListElements}
+				elements={firstList}
 				additionalClasses={{
-					dl: '[&>*:nth-child(5)]:mb-10 md:[&>*:nth-child(5)]:mb-0 md:h-40 md:flex-wrap gap-y-2 md:gap-x-5 xl:gap-x-10 2xl:gap-x-20',
+					dl: listClasses,
 				}}
 			/>
-		</>
+
+			<DescriptionList
+				elements={secondList}
+				additionalClasses={{
+					dl: listClasses,
+				}}
+			/>
+		</div>
 	);
 }
