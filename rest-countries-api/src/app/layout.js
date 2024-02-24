@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
 			<body className="bg-vl-gray dark:bg-dark-vd-blue h-screen text-vd-blue dark:text-white ease-in-out duration-300">
 				<Header theme={theme} />
 				{children}
+				<div id="back-modal"></div>
 			</body>
 		</html>
 	);

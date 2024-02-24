@@ -15,6 +15,8 @@ module.exports = {
 			'vd-blue': 'hsl(200, 15%, 8%)',
 			'dark-blue': 'hsl(209, 23%, 22%)',
 			'dark-vd-blue': 'hsl(207, 26%, 17%)',
+			['error']: 'hsl(347, 77%, 50%)',
+			['success']: 'hsl(161, 94%, 30%)',
 		},
 	},
 };

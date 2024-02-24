@@ -84,9 +84,9 @@ const LoadingSkeleton = () => (
 					<h3 className="mb-4 md:mb-0">
 						<Skeleton className="w-[136px] max-w-full" />
 					</h3>
-					<p>
+					<div>
 						<Skeleton className="w-[248px] max-w-full" />
-					</p>
+					</div>
 				</div>
 			</div>
 		</section>

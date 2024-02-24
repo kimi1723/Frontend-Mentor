@@ -10,7 +10,9 @@ export function Header({ theme }) {
 			<Wrapper className="flex justify-between">
 				<h1 className="font-extrabold">Where in the world?</h1>
 				<form action={changeTheme}>
-					<button className="font-semibold flex items-center gap-x-2" type="submit">
+					<button
+						className="font-semibold flex items-center gap-x-2 duration-300 ease-in-out hover:scale-105 focus:scale-105 outline-none"
+						type="submit">
 						<FaRegMoon />
 						{modeText}
 					</button>
