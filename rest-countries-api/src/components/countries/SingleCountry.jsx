@@ -8,7 +8,7 @@ import { selectableTextClasses } from '@/constants/selectableText';
 import { preventTagDefault } from '@/utils/preventTagDefault';
 
 const descriptionListAdditionalClasses = {
-	dl: 'gap-y-1',
+	list: 'gap-y-1',
 	title: selectableTextClasses,
 	desc: selectableTextClasses,
 };
