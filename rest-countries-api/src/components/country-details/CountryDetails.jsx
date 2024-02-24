@@ -1,18 +1,22 @@
 import Image from 'next/image';
 
+import { transformCountryData } from '@/utils/transformCountryData';
 import { Wrapper } from '@/ui/Wrapper';
 import { BackButton } from '@/ui/buttons/BackButton';
 import { DetailsList } from './DetailsList';
 import { Borders } from './Borders';
 
-export function CountryDetails({
-	data: {
+export async function CountryDetails({ country }) {
+	const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
+	const [data] = await res.json();
+
+	const {
 		name,
 		flag: { src, alt = '' },
 		borders,
-		...data
-	},
-}) {
+		...countriesData
+	} = await transformCountryData(data);
+
 	return (
 		<Wrapper>
 			<BackButton />
@@ -31,7 +35,7 @@ export function CountryDetails({
 
 				<div className="xl:mt-10 xl:w-full">
 					<h2 className="font-bold text-2xl md:text-3xl mb-5 xl:mb-8 duration-300 ease-in-out">{name}</h2>
-					<DetailsList data={data} />
+					<DetailsList data={countriesData} />
 					<Borders borders={borders} />
 				</div>
 			</section>

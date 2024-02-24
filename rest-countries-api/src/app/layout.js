@@ -1,6 +1,7 @@
-import { Nunito_Sans } from 'next/font/google';
 import './globals.css';
+import { Nunito_Sans } from 'next/font/google';
 import { cookies } from 'next/headers';
+
 import { Header } from '@/components/header/Header';
 
 const nunito_sans = Nunito_Sans({
