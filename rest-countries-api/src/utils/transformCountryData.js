@@ -1,3 +1,5 @@
+const { REST_API_URL } = require('@/constants/urls');
+
 const transformLanguages = languages => {
 	const languagesKeys = Object.keys(languages);
 	const languagesValues = Object.values(languages);
@@ -35,7 +37,7 @@ const transformBorders = async (bordersCodes = []) => {
 	if (bordersCodes.length < 1) return null;
 
 	const bordersQuery = bordersCodes.join(',');
-	const res = await fetch(`https://restcountries.com/v3.1/alpha?codes=${bordersQuery}&fields=name`);
+	const res = await fetch(`${REST_API_URL}/alpha?codes=${bordersQuery}&fields=name`);
 	const data = await res.json();
 	const borders = data.map(country => country.name.common).sort();
 
