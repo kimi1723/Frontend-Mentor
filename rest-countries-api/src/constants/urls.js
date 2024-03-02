@@ -1,1 +1,1 @@
-export const REST_API_URL = 'https://restcountries.com/v3.1/';
+export const REST_API_URL = process.env.REST_API_URL;
